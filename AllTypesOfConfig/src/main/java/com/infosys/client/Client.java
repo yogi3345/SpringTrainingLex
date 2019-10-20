@@ -28,6 +28,7 @@ public class Client{
         //LoanService loanService = context2.getBean("loanService", LoanService.class);
         employeeService.addEmployee(e);
         Employee e2 = employeeService.getEmployee(120);
+        
         System.out.println(e.getEmpId());
         System.out.println(loanService.checkEligibilty(e));
     }
