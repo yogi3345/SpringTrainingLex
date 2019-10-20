@@ -38,6 +38,7 @@ public class AppConfig {
 	
 	@Bean
 	public ArrayList<Integer> openLoanEmployees() {
+		
 		ArrayList<Integer> openLoanEmployees = new ArrayList<Integer>();
 		openLoanEmployees.add(150);
 		openLoanEmployees.add(7);
