@@ -1,0 +1,17 @@
+CREATE TABLE Author(
+   AuthorId  INT(11) NOT NULL Primary Key,
+   firstName VARCHAR(255) NOT NULL,
+   lastName VARCHAR(255) NOT NULL
+);
+CREATE TABLE Book(
+   bookId INT(11) NOT NULL Primary Key,
+   bookName VARCHAR(255) NOT NULL,
+   bookPrice DOUBLE(11) NOT NULL,
+   Author INT(11) null,
+   CONSTRAINT Book_FK Foreign key (Author) REFERENCES Author(AuthorId)
+);
+
+
+Just for Info 
+
+Table scripts
