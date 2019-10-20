@@ -1,0 +1,49 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context 
+       http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- <context:annotation-config /> -->
+	<context:component-scan base-package = "com.infosys"/>
+	<!-- <bean id="employee" class="com.infy.beans.Employee">
+        <constructor-arg name="empId" value="151" />
+        <constructor-arg name="firstName" value="Harry" />
+        <constructor-arg name="lastName" value="Potter" />
+        <constructor-arg name="role" value="Manage" />
+        <constructor-arg name="department" value="Irrelevant" />
+        <constructor-arg name="address" ref="address" />
+    </bean>
+    <bean id="address" class="com.infy.beans.Address" >
+    	<constructor-arg name="city" value="London" />
+    	<constructor-arg name="state" value="Solid" />
+    	<constructor-arg name="pincode" value="22" />
+    </bean>
+   <bean id="loan" class="com.infy.beans.Loan">
+        <constructor-arg name="empId" value="150" />
+        <constructor-arg name="loanId" value="7" />
+        <constructor-arg name="amount" value="10000" />
+        <constructor-arg name="emi" value="100" />
+        <constructor-arg name="noOfInsatllment" value="0" />
+        <constructor-arg name="balance" value="1000" />
+        <constructor-arg name="status" value="Bahut hi bura." />
+    </bean> 
+    
+    <bean id = "loanRepository" class = "com.infosys.dao.LoanRepositoryImpl">    
+	     <property name = "openLoanEmployees">
+	         <list>
+	            <value>150</value>
+	            <value>7</value>
+	         </list>
+	     </property>   
+	</bean>  -->
+	
+	<!-- <bean id = "employeeRepository3" class = "com.infosys.dao.EmployeeRepositoryImpl"/>
+	<bean id = "employeeRepository" class = "com.infosys.dao.EmployeeRepositoryImpl"/>    --> 
+	<bean id = "employeeService" class = "com.infosys.service.EmployeeServiceImpl"/>
+	<!-- <bean id = "loanService" class = "com.infosys.service.LoanServiceImpl">
+		<property name = "loanRepository" ref = "loanRepository"/>
+	</bean> -->  
+	<bean id = "loanService" class = "com.infosys.service.LoanServiceImpl"/>
+</beans>
