@@ -2,6 +2,7 @@ package com.infyBoot1.FirstBootApp.Entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -16,6 +17,7 @@ public class Author {
 	private String lastName;
 	
 	@Id
+	@GeneratedValue
     @Column(name = "authorId")
 	private int authorId;
 	
