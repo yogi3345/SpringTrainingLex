@@ -10,7 +10,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "BooksJPA")
+@Table(name = "BooksJPA2")
 public class Book {
 	
 	@Id
