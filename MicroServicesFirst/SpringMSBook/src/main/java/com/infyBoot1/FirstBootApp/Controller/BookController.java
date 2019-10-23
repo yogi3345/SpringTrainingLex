@@ -4,7 +4,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,10 +21,11 @@ import com.infyBoot1.FirstBootApp.DTO.BookDTO;
 import com.infyBoot1.FirstBootApp.Entity.Author;
 import com.infyBoot1.FirstBootApp.Entity.Book;
 import com.infyBoot1.FirstBootApp.Service.BookService;
+
 @RestController
 @RequestMapping
 @CrossOrigin
-@RibbonClient(name="custribbon") 
+//@RibbonClient(name="custribbon") 
 public class BookController 
 {
 	@Autowired
@@ -34,8 +34,8 @@ public class BookController
 	@Autowired
 	RestTemplate restTemplate;
 	
-	@Value("${author.url}")
-	public String url;
+	/*@Value("${author.url}")
+	public String url;*/
 	
 	//Fetching the Book details
 	@GetMapping(value="/{bookId}")
@@ -43,7 +43,8 @@ public class BookController
 	{
 		//This method will fetch the Books of Infytel and return the same. 
 		Book book = bookService.getBook(bookId);
-		Author author = restTemplate.getForObject(url+"/"+book.getAuthorId(), Author.class);
+		//No idea why taking URL from cloud is giving error  while calling the AUTHORMS service during runtime.
+		Author author = restTemplate.getForObject("http://AUTHORMS"+"/author/"+book.getAuthorId(), Author.class);
 		BookDTO bookDTO = book.toBookDTO();
 		bookDTO.setAuthor(author);
 		return ResponseEntity.ok(bookDTO);
