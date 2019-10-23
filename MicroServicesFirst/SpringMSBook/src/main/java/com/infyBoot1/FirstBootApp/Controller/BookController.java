@@ -4,6 +4,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,10 +25,14 @@ import com.infyBoot1.FirstBootApp.Service.BookService;
 @RestController
 @RequestMapping
 @CrossOrigin
+@RibbonClient(name="custribbon") 
 public class BookController 
 {
 	@Autowired
 	public BookService bookService;
+	
+	@Autowired
+	RestTemplate restTemplate;
 	
 	@Value("${author.url}")
 	public String url;
@@ -38,7 +43,7 @@ public class BookController
 	{
 		//This method will fetch the Books of Infytel and return the same. 
 		Book book = bookService.getBook(bookId);
-		Author author = new RestTemplate().getForObject(url+"/"+book.getAuthorId(), Author.class);
+		Author author = restTemplate.getForObject(url+"/"+book.getAuthorId(), Author.class);
 		BookDTO bookDTO = book.toBookDTO();
 		bookDTO.setAuthor(author);
 		return ResponseEntity.ok(bookDTO);
