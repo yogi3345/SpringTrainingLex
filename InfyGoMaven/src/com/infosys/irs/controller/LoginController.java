@@ -71,35 +71,19 @@ public class LoginController {
                 //Select destination values from db
                 List<String> s2=flightService.getDestinations();
                
+                
                 model.addAttribute("destinationList", s2);
+                
+                boolean admin=false;
+                if(user.getName().equals("Jack")) 
+                	admin=true;
+                model.addAttribute("admin", admin);
 
 			modelAndView = new ModelAndView("searchFlights", "command", new SearchFlights());	
 			}
 		}
 		catch (InvalidCredentialException e) {
 			handleInvalidCredentialException(e, new String("login"), modelAndView, userLogin);
-		}
-		return modelAndView;
-
-	}
-	
-	@RequestMapping(value = "/authenticateAdminLogin", method = RequestMethod.POST)
-	public ModelAndView authenticateAdminLogin(@Valid @ModelAttribute("command") Login userLogin, BindingResult result,
-			ModelMap model) {		
-
-		ModelAndView modelAndView = new ModelAndView("error");
-		try {
-			
-			if(checkResult(modelAndView, result, userLogin)) {
-				AdminUser user= loginService.authenticateAdminLogin(userLogin);
-				
-				model.addAttribute("userName", user.getName());
-				model.addAttribute("userId", user.getUserId());
-			modelAndView = new ModelAndView("addFlight", "command", new Flight());	
-			}
-		}
-		catch (InvalidCredentialException e) {
-			handleInvalidCredentialException(e, new String("Adminlogin"), modelAndView, userLogin);
 		}
 		return modelAndView;
 

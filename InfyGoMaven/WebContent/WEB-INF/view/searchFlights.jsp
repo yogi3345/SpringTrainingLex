@@ -206,6 +206,13 @@
 	<div class="col-md-12 text-center">
             <div class="text-center text-danger">${message}</div>  
             </div>
+    
+    <c:if test="${admin}">
+    	<div class="col-md-12 text-center">
+    		<a href="addFlightForm">Add a flight</a>
+    	</div>
+    </c:if>
+    
 					
 
 <%--	<c:if test="${size <=0}">

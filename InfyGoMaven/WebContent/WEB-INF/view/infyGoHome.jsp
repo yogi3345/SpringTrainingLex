@@ -79,9 +79,6 @@
 							<li><a class="btn btn-xs .nav-links-right" href="${pageContext.servletContext.contextPath}/login">
 									<span class="glyphicon glyphicon-log-in"></span>&nbsp;Login
 							</a></li>
-							<li><a class="btn btn-xs .nav-links-right" href="${pageContext.servletContext.contextPath}/adminLogin">
-									<span class="glyphicon glyphicon-log-in"></span>&nbsp;Admin
-							</a></li>
 
 						</ul>
 					</div>

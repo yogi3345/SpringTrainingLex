@@ -76,6 +76,18 @@ public ModelAndView searchFlights(@Valid @ModelAttribute("command") SearchFlight
 	return modelAndView;
 }
 
+@RequestMapping(value = "/addFlightForm", method = RequestMethod.GET)
+public ModelAndView handleAddFlight( ModelMap model) {		
+
+	ModelAndView modelAndView = new ModelAndView("error");
+		
+		/*model.addAttribute("userName", user.getName());
+		model.addAttribute("userId", user.getUserId());*/
+	modelAndView = new ModelAndView("addFlight", "command", new Flight());
+	return modelAndView;
+
+}
+	
 @RequestMapping(value = "/addFlight", method = RequestMethod.POST)
 public ModelAndView addFlight(@Valid @ModelAttribute("command") Flight flight,
 	BindingResult bindingResult, ModelMap model) throws Exception{	
