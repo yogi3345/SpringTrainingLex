@@ -128,10 +128,18 @@
 	    <version>1.8.13</version>
 	</dependency>
 	
+	   <!-- Commented it out bcoz of vulnerabilities 
 	 <dependency>
   <groupId>com.fasterxml.jackson.core</groupId>
   <artifactId>jackson-databind</artifactId>
   <version>2.9.6</version>
+</dependency>
+-->
+	   <!-- Added Patched version -->
+	 <dependency>
+  <groupId>com.fasterxml.jackson.core</groupId>
+  <artifactId>jackson-databind</artifactId>
+  <version>2.12.6.1</version>
 </dependency>
 	<dependency>
 		<groupId>javax.servlet</groupId>
